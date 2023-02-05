@@ -1,32 +1,94 @@
 import React from 'react'
 import { Container } from 'react-bootstrap'
+import UserTable from '../Table/UserTable'
+import UserStaticTable from "../Table/UserStaticTable"
 import Cards from './Cards'
+// import "./Card.css"
+import style from "./Card.module.css"
+import MenuCard from './MenuCard'
 
 function Body() {
 
-  const title1 = "Nanded"
+  const {car} = style
 
-  const title2 = "Hyderabad"
+  const RagisteruserData = [
+    { firstName: "junaid", lastName: "khan", location: "mumbai", age: 26 },
+    { firstName: "umed", lastName: "uddin", location: "mumbai", age: 28 },
+    { firstName: "aamer", lastName: "khan", location: "chennai", age: 30 },
+    { firstName: "khizer", lastName: "mohammad", location: "hyderabad", age: 35 },
+    { firstName: "uzer", lastName: "uddin", location: "kolkata", age: 18 },
+    { firstName: "hanzala", lastName: "shaikh", location: "pune", age: 25 },
+    { firstName: "faheen", lastName: "khan", location: "chennai", age: 28 },
+    { firstName: "sohail", lastName: "qazi", location: "hyderabad", age: 32 },
+    { firstName: "mubeen", lastName: "uddin", location: "hyderabad", age: 36 },
+    { firstName: "inayat", lastName: "khan", location: "hyderabad", age: 24 },
+  ];
+  
+  const UnRagisteruserData = [
+    { firstName: "adnan", lastName: "khan", location: "mumbai", age: 26 },
+    { firstName: "faizan", lastName: "uddin", location: "mumbai", age: 28 },
+    { firstName: "aamer", lastName: "khan", location: "chennai", age: 30 },
+    { firstName: "khizer", lastName: "mohammad", location: "hyderabad", age: 35 },
+    { firstName: "uzer", lastName: "uddin", location: "kolkata", age: 18 },
+    { firstName: "hanzala", lastName: "shaikh", location: "pune", age: 25 },
+    { firstName: "faheen", lastName: "khan", location: "chennai", age: 28 },
+    { firstName: "sohail", lastName: "qazi", location: "hyderabad", age: 32 },
+    { firstName: "mubeen", lastName: "uddin", location: "hyderabad", age: 36 },
+    { firstName: "inayat", lastName: "khan", location: "hyderabad", age: 24 },
+  ];
 
-  const title3 = "Mumbai"
+  const menuCards = [
+    {
+      itemName: "Caesar's Salad",
+      description: "The original Caesar's Salad recipe",
+      foodImage: 'https://bit.ly/2GJFu5W&#39;',
+      price: 12,
+      isFavorite: false,
+    },
+    {
+      itemName: 'Spaghetti Carbonara',
+      description: "Better than your nonna's! All local and fresh ingredients",
+      foodImage: 'https://bit.ly/2GBnz1n&#39;',
+      price: 15,
+      isFavorite: false,
+    },
+    {
+      itemName: 'Grilled Whole Fish',
+      description: 'Fish of the day, grilled whole with a side of vegetables',
+      foodImage: 'https://bit.ly/3d6iKsJ&#39;',
+      price: 20,
+      isFavorite: false,
+    },
+    {
+      itemName: 'Steak Florentine',
+      description: 'Meat!',
+      foodImage: 'https://bit.ly/3ddiSH1&#39;',
+      price: 30,
+      isFavorite: false,
+    },
+  ]
 
-  const dec1 = "Nanded is a city in Maharashtra state, India. It is the tenth largest city in the state and the seventy-ninth most populous city in India. It is the second largest city in Marathwada region. It is the district headquarters of Nanded district."
 
-  const dec2 = "Hyderabad is the capital of southern India's Telangana state. A major center for the technology industry, it's home to many upscale restaurants and shops. Its historic sites include Golconda Fort, a former diamond-trading center that was once the Qutb Shahi dynastic capital."
-
-  const dec3 = "Mumbai (formerly called Bombay) is a densely populated city on India’s west coast. A financial center, it's India's largest city. On the Mumbai Harbour waterfront stands the iconic Gateway of India stone arch, built by the British Raj in 1924."
 
   return (
     <Container>
       <br/>
-      <Cards 
-      title1 = {title1}
-      dec1={dec1}
-      title2={title2}
-      dec2={dec2}
-      title3 = {title3} 
-      dec3={dec3}
-      />
+      <div className={car}>
+      <Cards props= "Nanded"/>
+      <Cards props= "Hyderabad"/>
+      <Cards props= "Mumbai"/>
+      <Cards props= "Aurangabad"/>
+      </div>
+      <br/>
+      <UserStaticTable userDetails={RagisteruserData}/>
+      <br/>
+      <UserTable userDetails={RagisteruserData} heading="Ragister User Data" color="green"/>
+      <br/>
+      <UserTable userDetails={UnRagisteruserData} heading="Unragister User Data" color="red"/>
+      <br/>
+      <div className="d-flex justify-content-sm-between">
+      <MenuCard menuCards={menuCards}/>
+      </div>
       <br/>
     </Container>
   )
